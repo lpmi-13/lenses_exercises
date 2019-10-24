@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { Actions as KafkaActions } from 'redux-lenses-streaming';
 import { Action } from '../actions';
-
+import { MESSAGE_LIMIT } from '../util'
 
 class Subscribe extends React.Component {
   constructor(props) {
@@ -18,6 +18,13 @@ class Subscribe extends React.Component {
     this.state = {
       sqls: '',
     };
+  }
+
+  componentDidUpdate(props) {
+    const { messages, subscriptions } = props;
+    if (messages.length > MESSAGE_LIMIT) {
+      subscriptions.map(topic => this.onUnsubscribe(topic))
+    }
   }
 
   onSqlsChange(event) {
@@ -49,16 +56,18 @@ class Subscribe extends React.Component {
     const btnStyle = classnames('button is-small is-info');
 
     const topics = subscriptions.map(subscription =>
-      (<button
-        onClick={this.onUnsubscribe.bind(this, subscription)}
-        key={subscription}
-        className="button is-danger is-outlined is-small is-pulled-right"
-      >
-        <span>{subscription}</span>
-        <span className="icon is-small">
-          <i className="fa fa-times" />
-        </span>
-      </button>));
+      (
+        <button
+          onClick={this.onUnsubscribe.bind(this, subscription)}
+          key={subscription}
+          className="button is-danger is-outlined is-small is-pulled-right"
+        >
+          <span>{subscription}</span>
+          <span className="icon is-small">
+            <i className="fa fa-times" />
+          </span>
+        </button>)
+      );
 
     return (
       <nav className="ws-subscribe panel">
@@ -84,22 +93,32 @@ class Subscribe extends React.Component {
               disabled={!connection || !this.state.sqls}
             >
               Subscribe
-        </button>
+            </button>
             <button
               onClick={this.onClearMessages}
-              className="button is-small is-danger"
+              className="button is-small is-danger clear-messages"
               disabled={!connection}
             >
               Clear Messages
-        </button>
+            </button>
+            <button
+              style={{ marginLeft: '10px' }}
+              onClick={() => console.log('search')}
+              className="button is-small is-success"
+            >
+              <span className="icon is-small">
+              <i className="fas fa-check"></i>
+              </span>
+              <span>Search</span>
+            </button>
           </div>
           <div className="control">
             {topics}
           </div>
         </div>
         <div className="panel-block">
-          <div className="control">
-            Number of messages: {messages.length}
+          <div className="control number-of-messages">
+            Number of messages: {messages.length > MESSAGE_LIMIT ? 0 : messages.length}
           </div>
         </div>
       </nav>
@@ -127,3 +146,4 @@ const mapDispatchToProps = {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Subscribe);
+export { Subscribe }
