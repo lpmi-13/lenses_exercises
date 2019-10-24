@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the Subscribe component renders completely 1`] = `
+<nav
+  className="ws-subscribe panel"
+>
+  <div
+    className="panel-heading"
+  >
+    <div
+      className="field has-addons"
+    >
+      <p
+        className="control is-expanded"
+      >
+        <textarea
+          className="textarea is-small is-info"
+          onChange={[Function]}
+          placeholder="SQLS"
+          rows="3"
+          value=""
+        />
+      </p>
+    </div>
+  </div>
+  <div
+    className="panel-block"
+  >
+    <div
+      className="control"
+    >
+      <button
+        className="button is-small is-info"
+        disabled={true}
+        onClick={[Function]}
+        style={
+          Object {
+            "marginRight": "10px",
+          }
+        }
+      >
+        Subscribe
+      </button>
+      <button
+        className="button is-small is-danger clear-messages"
+        disabled={true}
+        onClick={[Function]}
+      >
+        Clear Messages
+      </button>
+      <button
+        className="button is-small is-success"
+        onClick={[Function]}
+        style={
+          Object {
+            "marginLeft": "10px",
+          }
+        }
+      >
+        <span
+          className="icon is-small"
+        >
+          <i
+            className="fas fa-check"
+          />
+        </span>
+        <span>
+          Search
+        </span>
+      </button>
+    </div>
+    <div
+      className="control"
+    />
+  </div>
+  <div
+    className="panel-block"
+  >
+    <div
+      className="control number-of-messages"
+    >
+      Number of messages: 
+      0
+    </div>
+  </div>
+</nav>
+`;
