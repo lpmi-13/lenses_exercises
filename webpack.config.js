@@ -1,8 +1,10 @@
 const path = require('path');
+const glob = require('glob');
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const PurgecssPlugin = require('purgecss-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -38,7 +40,10 @@ if (isProd) {
           removeAll: true
         }
       }
-    })
+    }),
+    new PurgecssPlugin({
+      paths: glob.sync(`${path.join(__dirname, 'src')}/**/*`,  { nodir: true }),
+    }),
   )
 } else {
   plugins.push(
