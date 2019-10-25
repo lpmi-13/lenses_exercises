@@ -91,6 +91,7 @@ class Connect extends React.Component {
           <p className="control has-icons-left">
             <input
               className="input is-small"
+              aria-label="user"
               type="text"
               placeholder="User"
               value={user}
@@ -106,6 +107,7 @@ class Connect extends React.Component {
           <p className="control has-icons-left">
             <input
               className="input is-small"
+              aria-label="password"
               type="password"
               placeholder="Password for Authentication"
               value={password}
@@ -122,14 +124,15 @@ class Connect extends React.Component {
     ) : (<div />)
 
     return (
-      <nav className="panel">
-        <p className="panel-heading">
+      <nav className="panel" aria-labelledby="connection-details">
+        <p className="panel-heading" id="connection-details">
           Connection Details
                 </p>
         <div className="panel-block">
           <p className="control has-icons-left">
             <input
               className="input is-small"
+              aria-label="host"
               type="text"
               placeholder="host"
               value={host}
@@ -145,6 +148,7 @@ class Connect extends React.Component {
           <p className="control has-icons-left">
             <input
               className="input is-small"
+              aria-label="client-id"
               type="text"
               placeholder="Client Id"
               value={clientId}
@@ -165,6 +169,7 @@ class Connect extends React.Component {
           <p className="control has-icons-left">
             <label className="checkbox">
               <input name='authRequired'
+                aria-label="auth-required"
                 type="checkbox"
                 checked={authRequired}
                 onChange={this.onInputChange} />
@@ -174,7 +179,7 @@ class Connect extends React.Component {
           <div className="control">
             <button
               onClick={this.onLogin}
-              className="button is-small is-info is-pulled-right"
+              className="button is-small is-info-button is-pulled-right"
               disabled={!connection || !authRequired}
             >
               Login

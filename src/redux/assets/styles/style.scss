@@ -35,8 +35,8 @@ html {
     padding: 5px 10px;
     font-size: 0.7em;
     div {
-      font-size: 0.8em;
-      color: #ccc;
+      font-size: 1.8em;
+      color: #000;
       padding: 0;
     }
     .key {
@@ -68,6 +68,23 @@ html {
   .button {
     margin-right: 10px;
   }
+}
+
+.is-1 {
+  color: #fff;
+}
+
+.is-danger {
+  background-color: #CC2C4C !important;
+}
+
+.is-info-button, .is-primary {
+  background-color: #166DA6 !important;
+  color: #fff;
+}
+
+.is-success {
+  background-color: #137435 !important;
 }
 
 .autosizer-bulma-fix {

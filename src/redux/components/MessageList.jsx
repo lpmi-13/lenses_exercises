@@ -85,7 +85,7 @@ class MessageList extends React.Component {
           onCommitMessage={onCommitMessage}
           onShowRowDetails={onShowRowDetails}
         />
-        <nav className="panel">
+        <nav aria-label="message panel" className="panel">
           <div className="panel-block">
             <AutoSizer className="autosizer-bulma-fix">
               {({ height, width, disableHeight = true }) => (

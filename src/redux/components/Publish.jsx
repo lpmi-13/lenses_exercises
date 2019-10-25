@@ -55,8 +55,8 @@ class Publish extends React.Component {
     const btnStyle = classnames('button is-fullwidth is-success');
 
     return (
-      <nav className="panel">
-        <p className="panel-heading">
+      <nav className="panel" aria-labelledby="publish-message">
+        <p className="panel-heading" id="publish-message">
           Publish Message
                 </p>
         <div className="panel-block">
@@ -64,6 +64,7 @@ class Publish extends React.Component {
             <input
               name="pubKey"
               className="input is-small"
+              aria-label="key"
               type="text"
               placeholder="Key"
               value={pubKey}
@@ -79,6 +80,7 @@ class Publish extends React.Component {
             <input
               name="pubValue"
               className="input is-small"
+              aria-label="message"
               type="text"
               placeholder="Message"
               value={pubValue}
@@ -94,6 +96,7 @@ class Publish extends React.Component {
             <input
               name="selectedTopic"
               className="input is-small"
+              aria-label="topic"
               type="text"
               placeholder="Topic"
               value={selectedTopic}

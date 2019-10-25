@@ -13,6 +13,7 @@ class MainContainer extends React.Component {
 
     return (
       <div className="container app">
+        <h1 className="title is-1">Redux Lenses Streaming Example</h1>
         <div className="columns">
           <div className="column">
             <Connect />

@@ -53,7 +53,7 @@ class Subscribe extends React.Component {
     const { messages, subscriptions, connection } = this.props;
     const { sqls } = this.state;
 
-    const btnStyle = classnames('button is-small is-info');
+    const btnStyle = classnames('button is-small is-info-button');
 
     const topics = subscriptions.map(subscription =>
       (
@@ -70,13 +70,14 @@ class Subscribe extends React.Component {
       );
 
     return (
-      <nav className="ws-subscribe panel">
+      <nav aria-label="subscribe" className="ws-subscribe panel">
         <div className="panel-heading">
           <div className="field has-addons">
             <p className="control is-expanded">
               <textarea
                 rows="3"
                 className="textarea is-small is-info"
+                aria-label="SQLS"
                 placeholder="SQLS"
                 value={sqls}
                 onChange={this.onSqlsChange}
@@ -100,16 +101,6 @@ class Subscribe extends React.Component {
               disabled={!connection}
             >
               Clear Messages
-            </button>
-            <button
-              style={{ marginLeft: '10px' }}
-              onClick={() => console.log('search')}
-              className="button is-small is-success"
-            >
-              <span className="icon is-small">
-              <i className="fas fa-check"></i>
-              </span>
-              <span>Search</span>
             </button>
           </div>
           <div className="control">

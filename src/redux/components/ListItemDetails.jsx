@@ -50,7 +50,7 @@ class ListItemDetails extends React.Component {
               ))}
             </ul>
             <button
-              className="button is-info is-small"
+              className="button is-info-button is-small"
               onClick={this.commitMessage(message)}
             >
               Commit
