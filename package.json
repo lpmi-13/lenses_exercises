@@ -48,7 +48,7 @@
     "copy-webpack-plugin": "5.0.0",
     "cross-env": "5.0.1",
     "css-loader": "2.1.0",
-    "cypress": "^3.4.1",
+    "cypress": "^12.11.0",
     "cypress-axe": "^0.5.1",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.10.0",
